@@ -2,8 +2,8 @@
 
 {% block content %}
 	<div style="margin-left: 100px">
-		<form action="/addnewpurchase" method="post">
-			<p><label style="margin: auto;">Add new purchase</label>
+		<form action="/addnewpurchase" method="post" onsubmit="return test()" name="addform">
+			<p><label style="margin: auto;" >Add new purchase</label>
 			<p><input type="text" name = "title" placeholder="Title">
 			<p><textarea rows="3" cols="40" placeholder="Description" name = "description" maxlength="120" style="resize: none"></textarea>
 			<p>
@@ -22,5 +22,7 @@
 				</select>
 			<p><input type = "submit" value="Save changes">
 		</form>
+		<div id = "output"></div>
 	</div>
+	<script type="text/javascript" async="async" src="js/valid.js"></script>
 {% endblock %}

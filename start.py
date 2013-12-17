@@ -2,10 +2,9 @@ import logging
 import os
 
 from google.appengine.api import users
-from google.appengine.ext import webapp
+from google.appengine.ext import webapp, db
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
-
 
 from Purchase import Purchase
 
@@ -84,7 +83,22 @@ class Login(webapp.RequestHandler):
         user = users.get_current_user()
         if user is None: self.redirect(users.create_login_url('/'))
         else: self.redirect('/')
-        
+      
+      
+def removeElement(key):
+    logging.info('transaction started')
+    purchase = Purchase.get(key)
+    if purchase: purchase.delete()
+    logging.info('transaction finished')
+      
+      
+class RemoveElement(webapp.RequestHandler):
+    
+    def get(self):
+        elementKey = self.request.get('element')
+        db.run_in_transaction(removeElement,elementKey)
+        logging.info('next action - redirect')  
+        self.redirect('/showpurchases')
 
         
         
@@ -94,7 +108,8 @@ application = webapp.WSGIApplication([('/', MainPage),
                                       ('/showpurchases', ShowPurchases),
                                       ('/logout', Logout),
                                       ('/login', Login),
-                                      ('/addnewpurchase', AddNewPurchase)
+                                      ('/addnewpurchase', AddNewPurchase),
+                                      ('/remove',RemoveElement)
                                       ], debug=True)
 
 def main():

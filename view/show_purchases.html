@@ -12,6 +12,7 @@
       <th>Description</th>
       <th>Priority</th>
       <th>Data</th>
+      <th>Remove</th>
      </tr>
 
    <tbody>
@@ -22,7 +23,8 @@
 		<td>{{purchase|getTitle}}</td>
 		<td><pre>{{purchase|getDescription}}</pre></td>
 		<td>{{purchase|getPriority}}</td>
-		<td>{{purchase|getData}}</td>		
+		<td>{{purchase|getData}}</td>
+		<td><a href={{purchase|remove_link}}>remove</a>
 	</tr>
 	{% endfor %}
 

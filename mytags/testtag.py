@@ -18,8 +18,14 @@ def getPriority(purchase):
 def getDataTime(purchase):
     return purchase.getDataTime()
 
+@register.filter(name='remove_link')
+def getRemoveLink(purchase):
+    return '/remove?element=' + str(purchase.key())
+ 
+
 register.filter(getTitle)
 register.filter(getDescription)
 register.filter(getPriority)
 register.filter(getDataTime)
+register.filter(getRemoveLink)
 

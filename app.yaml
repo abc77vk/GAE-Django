@@ -1,5 +1,5 @@
 application: psvgtask
-version: 1
+version: 3
 runtime: python
 api_version: 1
 
@@ -31,6 +31,9 @@ handlers:
   script: start.py
 
 - url: /addnewpurchase(\?.*)?
+  script: start.py
+ 
+- url: /remove
   script: start.py
   
 - url: /logout

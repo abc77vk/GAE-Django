@@ -7,7 +7,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 class ErrorPage(webapp.RequestHandler):
     
     def get(self):
-        logging.info("Error page")
+        logging.info("Error page, bad address: " + self.request.uri)
         self.response.out.write('<h1>Page not found!</h1>')
         
         
