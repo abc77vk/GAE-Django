@@ -1,0 +1,44 @@
+application: psvgtask
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /style
+  static_dir: stylesheet
+ 
+- url: /js
+  static_dir: javascript
+  
+- url: /(.*\.(ico))
+  static_files: images/\1
+  upload: images/(.*\.(ico))  
+    
+- url: /img
+  static_dir: images
+
+- url: /
+  script: start.py
+  
+- url: /addpurchase(\?.*)?
+  script: start.py
+  
+- url: /index\.html(\?.*)?
+  script: start.py
+
+- url: /showpurchases(\?.*)?
+  script: start.py
+
+- url: /addnewpurchase(\?.*)?
+  script: start.py
+  
+- url: /logout
+  script: start.py
+  
+- url: /login
+  script: start.py
+
+- url: /.*
+  script: error.py
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- <link rel="stylesheet" type="text/css" href="style/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="style/bootstrap-responsive.css"> -->
+
+<style type="text/css">
+.container {
+	max-width: 1200px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.title {
+	margin: 5px;
+	padding: 5px;
+	border: 1px black solid;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 24px;
+	background-color: yellow;
+}
+
+.content {
+	display: block;
+	border-top: 20px gray solid;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: 20px gray solid;
+	border-top: 20px gray solid;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: 20px gray solid;
+	border-radius: 20px;
+}
+
+.menu {
+	border: 1px black solid;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+}
+</style>
+<script type="text/javascript" async="async" src="/js/jquery.js"></script>
+<script type="text/javascript" async="async" src="/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<title>Main Page</title>
+</head>
+<body>
+	<div class="container">
+		<div class="title">My awesome web site!</div>
+		<div class="content">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<div class="menu" style = "margin: 100px 0px">
+								<ul>
+									<li><a href="/index.html">Main page</a></li>
+									<li><a href="/addpurchase">Add new purchase</a></li>
+									<li><a href="/showpurchases">Show all purchases</a></li>
+									<li><a href="/logout">Logout</a></li>
+								</ul>
+								{{user}}
+							</div>
+						</td>
+						<td>
+							<div class="info">
+							
+								{% block content %}
+								
+								{% endblock %}								
+		
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block content %}
+	<div style="margin-left: 100px">
+		<form action="/addnewpurchase" method="post">
+			<p><label style="margin: auto;">Add new purchase</label>
+			<p><input type="text" name = "title" placeholder="Title">
+			<p><textarea rows="3" cols="40" placeholder="Description" name = "description" maxlength="120" style="resize: none"></textarea>
+			<p>
+				<label for="select">Priority</label>
+				<select id = "select" name="priority">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>
+			<p><input type = "submit" value="Save changes">
+		</form>
+	</div>
+{% endblock %}
